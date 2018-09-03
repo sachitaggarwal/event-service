@@ -25,7 +25,6 @@
 			<groupId>com.company.persephoneevent</groupId>
 			<artifactId>eventsrv</artifactId>
 			<version>1.0</version>
-			<classifier>classes</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.json</groupId>

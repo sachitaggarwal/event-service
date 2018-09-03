@@ -2,14 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<parent>
 		<groupId>com.company.persephoneevent</groupId>
 		<artifactId>event-service-parent</artifactId>
 		<version>1.0</version>
 	</parent>
+	
+	
 	<artifactId>eventsrv</artifactId> 
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>Event Service</name>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.source.level>1.8</java.source.level>
@@ -92,6 +96,16 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+					  <goals>
+						<goal>repackage</goal>
+					  </goals>
+					  <configuration>
+						<classifier>deployable</classifier>
+					  </configuration>
+					</execution>
+				  </executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-failsafe-plugin</artifactId>
@@ -158,19 +172,6 @@
 					</execution>
 				</executions>
 			</plugin>
-					<plugin>
-						<artifactId>maven-war-plugin</artifactId>
-						<version>3.0.0</version>
-						<configuration>
-						    <attachClasses>true</attachClasses>
-							<webResources combine.children="append">
-								<resource>
-									<directory>${project.build.sourceDirectory}</directory>
-									<targetPath>sources</targetPath>
-								</resource>
-							</webResources>
-						</configuration>
-					</plugin>
 		</plugins>
 	</build>
 </project>

@@ -7,8 +7,7 @@
 		<artifactId>event-service-parent</artifactId>
 		<version>1.0</version>
 	</parent>
-	<artifactId>event-srv-integration-tests</artifactId> <!-- hint: the template generates uses artifactId=srv. Renamed to be able 
-		to have the persephoneproposal project and this one in the same elcipse workspace -->
+	<artifactId>event-srv-integration-tests</artifactId> 
 	<name>Event Service Integration Tests</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,7 +23,6 @@
 		<dependency>
 			<groupId>com.company.persephoneevent</groupId>
 			<artifactId>eventsrv</artifactId>
-			<classifier>classes</classifier>
 			<version>1.0</version>
 		</dependency>
 		<dependency>

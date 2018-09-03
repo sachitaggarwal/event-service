@@ -1,9 +1,29 @@
 ---
+# Default Manifest with single input for sample
 applications:
-  - name: customersrv-sachit
-    memory: 512M
-    buildpack: sap_java_buildpack
-    path: application/target/event-consumer-app.war
-    services:
+- name: eventsrv
+  host: persephone-event-consumer-prod
+  memory: 768M
+  path: application/target/event-consumer-app-deployable.jar
+  random-route: false
+  services:
+    # This must point to an existing `enterprise messaging` service instance
+    # if service name gets changed this must also be changed in the `SAP_XBEM_BINDINGS` -> "brokerInstanceName"
+    - messaging-prod
     - dest-service
-    - cap-uaa
+  env:
+    SAP_XBEM_BINDINGS: >
+      {    
+      "inputs": {
+          "in_queue": {
+            "service": "messaging-prod",
+             "address": "queue:Persephone_Queue"
+          }          
+        },    
+         "outputs": {
+          "out_queue": {
+            "service": "messaging-prod",
+            "address": "queue:Persephone_Queue"
+          }
+        }
+      }

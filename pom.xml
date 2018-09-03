@@ -17,31 +17,6 @@
 	<version>1.0</version>
 	<packaging>pom</packaging>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.sap.cloud.s4hana</groupId>
-				<artifactId>sdk-bom</artifactId>
-				<version>1.10.0</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
-	<properties>
-		<java.version>1.8</java.version>
-
-		<maven.compiler.source>${java.version}</maven.compiler.source>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<maven.compiler.testSource>${java.version}</maven.compiler.testSource>
-		<maven.compiler.testTarget>${java.version}</maven.compiler.testTarget>
-
-		<project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	</properties>
-
 	<modules>
 		<module>application</module>
 		<module>unit-tests</module>
