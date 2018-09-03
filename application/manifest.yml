@@ -1,0 +1,9 @@
+---
+applications:
+  - name: customersrv-sachit
+    memory: 512M
+    buildpack: sap_java_buildpack
+    path: target/customersrv-1.0.war
+    services:
+    - dest-service
+    - cap-uaa
