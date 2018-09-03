@@ -70,7 +70,7 @@ stages:
   productionDeployment:
     cfTargets:
       - org: 'Persephone'
-        space: 'workflow-events'
+        space: 'dev-cap'
         apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
         appName: 'eventsrv-demo'
         credentialsId: 'CF-DEPLOY-SAP'
