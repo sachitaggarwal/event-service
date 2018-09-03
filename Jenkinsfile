@@ -34,29 +34,22 @@ pipeline {
         }
 
 
-
         stage('Local Tests') {
             parallel {
 
                //stage("Static Code Checks") { steps { stageStaticCodeChecks script: this } }
                stage("Backend Unit Tests") { steps { stageUnitTests script: this } }
                stage("Backend Integration Tests") { steps { stageIntegrationTests script: this } }
-              //Frontend Unit Tests as script in frontend module!
-                stage("Frontend Unit Tests") {
-                    when { expression { commonPipelineEnvironment.configuration.skipping.FRONT_END_TESTS } }
-                   steps { stageFrontendUnitTests script: this }
-                }
-               // NSP.log is not being found
+               /*
+		// NSP.log is not being found
                 stage("Node Security Platform Scan") {
                     when { expression { commonPipelineEnvironment.configuration.skipping.NODE_SECURITY_SCAN } }
                     steps { stageNodeSecurityPlatform script: this }
-                }
-
-			}
+                }*/
+		}
         }
 
 /*
-
         stage('Remote Tests') {
             when { expression { commonPipelineEnvironment.configuration.skipping.REMOTE_TESTS } }
             parallel {
@@ -70,15 +63,15 @@ pipeline {
                 }
             }
         }
-*/
 
-/*	    
+
         // Config to specifiy scan modules
          //Problem: integration test work (find artifact from main module) to generate audit logs that can be analayzed here
-     stage('Quality Checks') {
+      stage('Quality Checks') {
             steps { stageS4SdkQualityChecks script: this }
         }
 
+	    
         stage('Third-party Checks') {
             when { expression { commonPipelineEnvironment.configuration.skipping.THIRD_PARTY_CHECKS } }
             parallel {
@@ -105,19 +98,19 @@ pipeline {
         }
 
 
-
+/*
 
         stage('Artifact Deployment') {
             //when { expression { commonPipelineEnvironment.configuration.skipping.ARTIFACT_DEPLOYMENT } }
             steps { stageArtifactDeployment script: this }
         }
 
-
+*/
         stage('Production Deployment') {
             //when { expression { commonPipelineEnvironment.configuration.skipping.PRODUCTION_DEPLOYMENT } }
             steps { stageProductionDeployment script: this }
         }
-*/
+
 
     }
     post {
