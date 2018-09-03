@@ -39,7 +39,7 @@ pipeline {
         stage('Local Tests') {
             parallel {
 
-               stage("Static Code Checks") { steps { stageStaticCodeChecks script: this } }
+               //stage("Static Code Checks") { steps { stageStaticCodeChecks script: this } }
                stage("Backend Unit Tests") { steps { stageUnitTests script: this } }
                stage("Backend Integration Tests") { steps { stageIntegrationTests script: this } }
               //Frontend Unit Tests as script in frontend module!
