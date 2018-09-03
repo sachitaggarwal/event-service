@@ -9,7 +9,7 @@ steps:
     projectSettingsFile : ''
 
   deployToCfWithCli:
-    smokeTestStatusCode: '307'
+    smokeTestStatusCode: '404'
 
 #  checkFindbugs and checkPmd must be explicitly overriden currently -> default config is to scan module 'application' -> in mta we only execute it in the java modules
   checkFindbugs:
